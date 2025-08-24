@@ -33,8 +33,7 @@ sudo nano /opt/westddns-py/conf.json
 3. 创建服务
 
 ```bash
-sudo cp /opt/westddns-py/westddns.service /etc/systemd/system/
-sudo systemctl daemon-reload
+sudo bash -c "cp /opt/westddns-py/westddns.service /etc/systemd/system/ && systemctl daemon-reload"
 ```
 
 4. 运行服务（开机自启）
