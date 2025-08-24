@@ -1,0 +1,12 @@
+[Unit]
+Description=westddns-py
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/westddns
+ExecStart=python3 /opt/westddns/ddns.py
+Restart=always
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
