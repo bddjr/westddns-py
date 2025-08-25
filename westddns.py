@@ -50,12 +50,8 @@ def do():
 
 
 try:
-    do()
-    while not success:
-        time.sleep(10)
-        do()
     while True:
-        time.sleep(60)
         do()
+        time.sleep(60 if success else 10)
 except KeyboardInterrupt:
     print("^C")
