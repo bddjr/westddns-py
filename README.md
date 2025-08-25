@@ -5,16 +5,23 @@
 ## 在 Linux 安装
 
 依赖：
-> python3  
-> git  
 
-1. 克隆仓库并设置权限
+> python3  
+> git
+
+1. 创建目录
 
 ```bash
-sudo bash -c "git clone https://github.com/bddjr/westddns-py /opt/westddns-py && chmod 700 /opt/westddns-py"
+sudo mkdir -m 700 -p /opt/westddns-py
 ```
 
-2. 创建并填写配置文件。  
+2. 获取脚本
+
+```bash
+sudo curl https://raw.githubusercontent.com/bddjr/westddns-py/refs/heads/main/westddns.py -o /opt/westddns-py/westddns.py
+```
+
+3. 创建并填写配置文件。  
    `apidomainkey`请参考 <https://www.west.cn/docs/505763.html> 填写。
 
 ```bash
@@ -23,17 +30,17 @@ sudo nano /opt/westddns-py/conf.json
 
 ```json
 {
-    "apidomainkey": "",
-    "domain": "example.com",
-    "hostname": "ddns.example.com",
-    "get_ip_from": "https://4.ipw.cn"
+	"apidomainkey": "",
+	"domain": "example.com",
+	"hostname": "ddns.example.com",
+	"get_ip_from": "https://4.ipw.cn"
 }
 ```
 
 3. 创建服务
 
 ```bash
-sudo bash -c "cp /opt/westddns-py/westddns.service /etc/systemd/system/ && systemctl daemon-reload"
+sudo bash -c "curl https://raw.githubusercontent.com/bddjr/westddns-py/refs/heads/main/westddns.service -o /etc/systemd/system/westddns.service && systemctl daemon-reload"
 ```
 
 4. 运行服务（开机自启）
