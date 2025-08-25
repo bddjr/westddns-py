@@ -3,7 +3,7 @@ Description=westddns-py
 After=network.target
 
 [Service]
-WorkingDirectory=/opt/westddns
+WorkingDirectory=/opt/westddns-py
 ExecStart=/bin/python3 westddns.py
 Restart=always
 KillMode=process
