@@ -37,13 +37,13 @@ sudo nano /opt/westddns-py/conf.json
 }
 ```
 
-3. 创建服务
+4. 创建服务
 
 ```bash
 sudo bash -c "curl https://raw.githubusercontent.com/bddjr/westddns-py/refs/heads/main/westddns.service -o /etc/systemd/system/westddns.service && systemctl daemon-reload"
 ```
 
-4. 运行服务（开机自启）
+5. 运行服务（开机自启）
 
 ```bash
 sudo systemctl enable --now westddns
