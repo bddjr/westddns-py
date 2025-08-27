@@ -48,3 +48,9 @@ sudo bash -c "curl https://raw.githubusercontent.com/bddjr/westddns-py/refs/head
 ```bash
 sudo systemctl enable --now westddns
 ```
+
+7. 查看日志
+
+```bash
+sudo journalctl -u westddns
+```
