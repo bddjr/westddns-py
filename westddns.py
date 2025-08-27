@@ -2,7 +2,7 @@
 # https://github.com/bddjr/westddns-py
 
 from urllib.parse import quote
-import requests, json, time, logging
+import requests, json, time, logging, re
 
 logging.basicConfig(
     level=logging.INFO,
@@ -21,14 +21,16 @@ apidomainkey = quote(str(conf["apidomainkey"]))
 ipa = None
 success = False
 
+reGetIPv4Address = re.compile(r"(\d{1,3}\.){3}\d{1,3}")
+
 
 def do():
     global domain, hostname, apidomainkey, ipa, success
     success = False
     try:
-        resp = requests.get(conf["get_ip_from"])
+        resp = requests.get("https://ddns.oray.com/checkip")
         if resp.ok:
-            respText = resp.text.strip()
+            respText = reGetIPv4Address.search(resp.text).group()
             if ipa == respText:
                 success = True
             else:
